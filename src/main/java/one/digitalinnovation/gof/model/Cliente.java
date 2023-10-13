@@ -1,9 +1,11 @@
 package one.digitalinnovation.gof.model;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,6 +17,8 @@ public class Cliente {
 	private String nome;
 	@ManyToOne
 	private Endereco endereco;
+	@ManyToMany(mappedBy = "cliente")
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;
